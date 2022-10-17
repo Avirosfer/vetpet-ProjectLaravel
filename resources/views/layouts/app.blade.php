@@ -17,10 +17,10 @@
                 </h1>
 
                 <nav class="flex gap-5">
-                    <a class="font-bold uppercase text-gray-600 text-base hover:text-gray-300" href="#" >
+                    <a class="font-bold uppercase text-gray-600 text-base hover:text-gray-300 transition-colors cursor-pointer" href="#" >
                         Login
                     </a>
-                    <a class="font-bold uppercase text-gray-600 text-base  hover:text-gray-300" href="/crear-cuenta">
+                    <a class="font-bold uppercase text-gray-600 text-base hover:text-gray-300 transition-colors cursor-pointer" href="{{ route('register') }}">
                         Crear Cuenta
                     </a>
                 </nav>
