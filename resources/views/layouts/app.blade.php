@@ -16,14 +16,36 @@
                     VetPet Software
                 </h1>
 
-                <nav class="flex gap-5">
-                    <a class="font-bold uppercase text-gray-600 text-base hover:text-gray-300 transition-colors cursor-pointer" href="#" >
-                        Login
-                    </a>
-                    <a class="font-bold uppercase text-gray-600 text-base hover:text-gray-300 transition-colors cursor-pointer" href="{{ route('register') }}">
-                        Crear Cuenta
-                    </a>
-                </nav>
+                @auth
+                    <nav class="flex gap-5">
+                        <a class="font-bold text-gray-600 text-base">
+                            Hola:
+                            <span class="font-normal">
+                                {{ auth()->user()->username }}
+                            </span>
+                        </a>
+
+                        <form action=" {{ route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="font-bold uppercase text-gray-600 text-base hover:text-gray-300 transition-colors cursor-pointer">
+                                Cerrar Sesión
+                            </button>
+                        </form>
+                    </nav>
+                @endauth
+
+                @guest
+                    <nav class="flex gap-5">
+                        <a class="font-bold uppercase text-gray-600 text-base hover:text-gray-300 transition-colors cursor-pointer" href="{{ route('login') }}" >
+                            Login
+                        </a>
+                        <a class="font-bold uppercase text-gray-600 text-base hover:text-gray-300 transition-colors cursor-pointer" href="{{ route('register') }}">
+                            Crear Cuenta
+                        </a>
+                    </nav>
+                @endguest
+
+
 
             </div>
         </header>
